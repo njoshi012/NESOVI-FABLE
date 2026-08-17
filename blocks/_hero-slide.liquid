@@ -58,6 +58,7 @@
           href="{{ block.settings.slide_link }}"
           class="hero-slide__link"
           aria-label="{{ block.settings.heading | default: block.settings.eyebrow | default: 'View slide' | escape }}"
+          draggable="false"
         ></a>
       {%- endif -%}
       {%- if has_content -%}
@@ -110,6 +111,8 @@
     object-fit: cover;
     object-position: center center;
     position: relative;
+    -webkit-user-drag: none;
+    user-select: none;
   }
   .hero-slide__image--placeholder {
     opacity: 0.4;
@@ -141,6 +144,9 @@
     display: block;
     text-indent: -9999px;
     overflow: hidden;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-touch-callout: none;
   }
   /* When the whole slide is a link, let clicks over text fall through to it,
      while keeping the buttons individually clickable. */
