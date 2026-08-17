@@ -13,12 +13,6 @@
 
   <div class="reels-wrapper">
     {%- for block in section.blocks -%}
-      {%- liquid
-        assign reel_link = block.settings.page_link
-        if reel_link == blank and block.settings.product != blank
-          assign reel_link = block.settings.product.url
-        endif
-      -%}
       <div class="reel-card" {{ block.shopify_attributes }}>
         <div class="reel-video-container">
           <video
@@ -36,11 +30,6 @@
             </svg>
           </div>
         </div>
-        {%- if reel_link != blank -%}
-          <div class="reel-content">
-            <a class="reel-btn" href="{{ reel_link }}">View Product</a>
-          </div>
-        {%- endif -%}
       </div>
     {%- endfor -%}
   </div>
@@ -111,22 +100,7 @@
   .reel-card.reel-loaded .reel-play-indicator {
     opacity: 0;
   }
-  .reel-content {
-    padding: 10px;
-    text-align: center;
-    background: #fff;
-  }
-  .reel-btn {
-    display: inline-block;
-    background: #000;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .reel-btn:hover { opacity: 0.82; }
+
 </style>
 
 <script>
