@@ -1510,7 +1510,7 @@
             "accordion_row_V8Lf78": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "What is the return policy?",
+                "heading": "Is Nesovi jewellery anti-tarnish?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -1519,7 +1519,7 @@
                 "text_a6Vf4d": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn’t the case, let us know and we’ll do our best to work with you to make it right. </p>",
+                    "text": "<p>Yes, most Nesovi jewellery is designed to be anti-tarnish and retain its shine with proper care. A few products may not be anti-tarnish, which will be mentioned on the product page.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1549,7 +1549,7 @@
             "accordion_row_WEEeiz": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "Are any purchases final sale?",
+                "heading": "Is Nesovi jewellery real gold?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -1558,7 +1558,7 @@
                 "text_t6JXbD": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>We are unable to accept returns on certain items. These will be carefully marked before purchase.</p>",
+                    "text": "<p>No. Nesovi offers stylish imitation and fashion jewellery designed to give you a premium look at an affordable price.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1589,7 +1589,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_dash_row",
               "settings": {
-                "heading": "When will I get my order?",
+                "heading": "Our jewellery is made using quality materials that vary by product, including stainless steel and other jewellery alloys. The exact material is mentioned on each product page.",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -1630,7 +1630,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_dash_row",
               "settings": {
-                "heading": "Where are your products manufactured?",
+                "heading": "Does Nesovi offer Cash on Delivery?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -1640,7 +1640,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value. </p>",
+                    "text": "<p>Yes, Cash on Delivery may be available for eligible orders and locations. The available payment options will be displayed at checkout.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1671,7 +1671,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_dash_row",
               "settings": {
-                "heading": "How much does shipping cost?",
+                "heading": "Does Nesovi offer free shipping?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -1681,7 +1681,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Shipping is calculated based on your location and the items in your order. You will always know the shipping price before you purchase.</p>",
+                    "text": "<p>Yes, Nesovi offers <strong>free shipping on eligible orders above ₹499</strong>. Shipping charges for orders below the applicable threshold are shown at checkout.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
