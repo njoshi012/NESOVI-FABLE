@@ -1333,8 +1333,8 @@
         "button_label": "",
         "button_link": "",
         "color_scheme": "scheme-1",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 20,
+        "padding-block-end": 20
       }
     },
     "1761592424888ec75f": {
