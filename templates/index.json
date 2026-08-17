@@ -1707,6 +1707,88 @@
               "block_order": [
                 "text_XmDQ37"
               ]
+            },
+            "accordion_row_h3QPdm": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_dash_row",
+              "settings": {
+                "heading": "Can I return or exchange my Nesovi jewellery?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_MKyMYw": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Eligible products can be returned or exchanged according to Nesovi's return and exchange policy. Please check the applicable conditions before requesting a return.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_MKyMYw"
+              ]
+            },
+            "accordion_row_RinpKJ": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_dash_row",
+              "settings": {
+                "heading": "What should I do if I receive a damaged or wrong product?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_4pt6wY": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Please contact Nesovi customer support as soon as possible with your order details and photos or video of the product. Our team will help you with the applicable resolution.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_4pt6wY"
+              ]
             }
           },
           "block_order": [
@@ -1714,7 +1796,9 @@
             "accordion_row_WEEeiz",
             "accordion_row_LqLQQY",
             "accordion_row_4cgcT3",
-            "accordion_row_VLFj84"
+            "accordion_row_VLFj84",
+            "accordion_row_h3QPdm",
+            "accordion_row_RinpKJ"
           ]
         }
       },
