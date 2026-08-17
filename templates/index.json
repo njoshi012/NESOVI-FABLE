@@ -901,57 +901,6 @@
         "padding-block-end": 48
       }
     },
-    "collection_links_4k9pxN": {
-      "type": "collection-links",
-      "blocks": {
-        "link": {
-          "type": "_collection-link",
-          "static": true,
-          "settings": {
-            "show_count": true
-          },
-          "blocks": {
-            "title": {
-              "type": "_inline-collection-title",
-              "name": "t:names.title",
-              "static": true,
-              "settings": {
-                "font": "var(--font-subheading--family)",
-                "weight": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none"
-              },
-              "blocks": {}
-            },
-            "image": {
-              "type": "_image",
-              "static": true,
-              "settings": {
-                "height": "large",
-                "ratio": "square",
-                "border_radius": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "name": "t:names.collection_links_spotlight",
-      "settings": {
-        "collection_list": [
-          "ad-necklace"
-        ],
-        "layout": "spotlight",
-        "section_width": "page-width",
-        "alignment": "left",
-        "image_position": "right",
-        "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "nesovi_shop_grid_mLAKhY": {
       "type": "nesovi-shop-grid",
       "custom_css": [
@@ -1849,7 +1798,6 @@
     "hero_slider_main",
     "trust_bar_main",
     "shop_by_category",
-    "collection_links_4k9pxN",
     "nesovi_shop_grid_mLAKhY",
     "nesovi_videos_ikFzdD",
     "insta_reel_video_slider_td7XHE",
