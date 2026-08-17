@@ -27,7 +27,7 @@
               {%- unless product_flexi.has_only_default_variant -%}{{- variant.title }} - {% endunless -%}{{ product_flexi.title -}}
             </span>
             <span class="product_flexi_price">
-              {%- unless product_flexi.has_only_default_variant -%}{{- variant.price | money_without_trailing_zeros }} - {% endunless -%}{{ product_flexi.price | money_without_trailing_zeros -}}
+              {{ variant.price | money_without_trailing_zeros }}
             </span>
             {% if product.title == 'Ultimate Perfume Box' %}
               <span style="margin-top:5px;">{{ 'Net Contents - 100ml' | upcase }}</span>
