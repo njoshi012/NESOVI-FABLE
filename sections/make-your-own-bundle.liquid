@@ -1,520 +1,254 @@
-/*Flexi Box Bundle Script Code*/
+{% comment %}Flexi Box Bundle Functionality{% endcomment %}
 
+{{ 'make-your-own-bundle-style.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'make-your-own-bundle-script.js' | asset_url }}" defer="defer"></script>
 
-document.addEventListener('DOMContentLoaded', function () {
-  
-  const openCartDrawerAfterReload = localStorage.getItem('openCartDrawerAfterReload'); 
-  if(openCartDrawerAfterReload && openCartDrawerAfterReload === "true"){
-    document.querySelector(".header-actions__cart-icon")?.click();
+{%- assign flexi_box_bundle = product.metafields.custom.flexi_box_bundle.value -%}
+
+<div class="flexi-box-bundle">
+  <product-form class="sticky-cart__form">
+    {%- form 'product', product,
+      class: 'product__form',
+      id: 'flexi-box-form',
+      novalidate: 'novalidate',
+      data-type: 'add-to-cart-form',
+      data-variant-id: product.selected_or_first_available_variant.id,
+      data-sku: product.selected_or_first_available_variant.sku,
+      data-price: product.selected_or_first_available_variant.price
+    -%}
+      {% # Tab menu %}
+      <div class="tab-menu sticky-header center">
+        <div class="excluded-from-discount-combos">🎁 Make Rakhi Extra Special — Gift Her a Jewellery Box</div>
+        <ul class="tab-items">
+          {%- assign steps_count = flexi_box_bundle.count -%}
+          {%- for flexi_box_step in flexi_box_bundle -%}
+            <li class="tab-item">
+              <div class="tab{% if forloop.first %} active-tab{% endif %}" data-id="tab{{ forloop.index }}">
+                <div class="sticky-header-bubble">
+                  <h5 class="step-heading">{% if steps_count > 1 %}STEP {{ forloop.index }}{% else %}{{ product.title }}{% endif %}</h5>
+                  <div class="bubble-wrapper">
+                    <span class="bubble-counter" id="checkbox_count_tab_{{ forloop.index }}_product"></span>
+                  </div>
+                  {% if forloop.index == 1 %}
+                    <p class="collection-label">1 Necklace 📿</p>
+                  {% elsif forloop.index == 2 %}
+                    <p class="collection-label">1 Earrings ✨</p>
+                  {% elsif forloop.index == 3 %}
+                    <p class="collection-label">1 Ring 💍</p>
+                  {% elsif forloop.index == 4 %}
+                    <p class="collection-label">1 Bracelet ✨</p>
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+        <div id="scroll-to-reviews" class="nesovi-badge">
+          🔒 Secure Checkout | 💯 Skin Safe | ⭐ Loved by 1000+ Customers
+        </div>
+      </div>
+      {% # end of tab-menu %}
+      <script>
+        let totalproductSelection = 0;
+      </script>
+      <hr class="hr-divider" style="margin:0 0 10px;">
+      {% # Custom search bar code %}
+      <div class="search center hidden">
+        <input
+          id="searchbar"
+          type="text"
+          class="search-field"
+          name="search"
+          placeholder="Search..."
+          onkeypress="return event.keyCode != 13;"
+        >
+        <span class="search-clear">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z" fill="rgba(191,191,191,1)"></path>
+          </svg>
+        </span>
+      </div>
+      {% # Custom search bar code Ends %}
+      {%- assign item_index = 0 -%}
+      {%- for flexi_box_step in flexi_box_bundle -%}
+        {%- assign tab_index = forloop.index -%}
+        <script>
+          totalproductSelection = totalproductSelection + Number({{ flexi_box_step.mandatory_products }});
+        </script>
+
+        <div
+          class="tab-content{% if forloop.first %} active-tab-content{% endif %}"
+          data-product-limit="{{ flexi_box_step.mandatory_products }}"
+          data-id="tab{{ tab_index }}"
+        >
+          {%- assign flexi_box_collection = flexi_box_step.collection.value -%}
+          {%- assign variant_ids = '' -%}
+          {%- assign product_variant_gids = flexi_box_collection.metafields.custom.flexi_box_variant_sort_order.value -%}
+
+          <ul id="collection-list" style="margin-top: 95px;">
+            <div class="row collection page-width">
+              {%- assign product_limit = flexi_box_step.display_products -%}
+              {%- assign product_index = 0 -%}
+
+              {%- if product_variant_gids != blank -%}
+                {%- for product_variant in product_variant_gids -%}
+                  {%- for product_flexi in flexi_box_collection.products -%}
+                    {%- for variant in product_flexi.variants -%}
+                      {%- if variant.id == product_variant.id -%}
+                        {%- assign product_index = product_index | plus: 1 -%}
+                        {%- if product_limit >= product_index -%}
+                          {% assign item_index = item_index | plus: 1 %}
+                          {%- render 'make-your-own-bundle-item',
+                            product_flexi: product_flexi,
+                            variant: variant,
+                            product: product,
+                            tab_index: tab_index,
+                            product_index: product_index,
+                            item_index: item_index
+                          -%}
+                        {% endif %}
+                        {% assign variant_ids = variant_ids | append: variant.id | append: ',' %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+
+              {%- for product_flexi in flexi_box_collection.products -%}
+                {%- for variant in product_flexi.variants -%}
+                  {%- unless variant_ids contains variant.id -%}
+                    {%- assign product_index = product_index | plus: 1 -%}
+                    {%- if product_limit >= product_index -%}
+                      {% assign item_index = item_index | plus: 1 %}
+                      {%- render 'make-your-own-bundle-item',
+                        product_flexi: product_flexi,
+                        variant: variant,
+                        product: product,
+                        tab_index: tab_index,
+                        product_index: product_index,
+                        item_index: item_index
+                      -%}
+                    {%- endif -%}
+                  {%- endunless -%}
+                {%- endfor -%}
+              {%- endfor -%}
+            </div>
+          </ul>
+        </div>
+        {% # End of tab %}
+      {%- endfor -%}
+
+      <div class="sticky_cart">
+        <div class="product-details page-width">
+          <div class="prd-details prd-details-left">
+            <div class="prd-image-title">
+              {{ product.featured_image | image_url: width: 150 | image_tag: loading: 'lazy', fetchpriority: 'low', class: 'featured-img' }}
+              <h3>{{ product.title }}</h3>
+            </div>
+          </div>
+          <div class="prd-details prd-details-right">
+            <div class="prd-image-price-cart">
+              <div class="prd-price">Total: {{ product.price | money | remove: '.00' }}/-</div>
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <button
+                type="submit"
+                id="submit-btn"
+                name="add"
+                class="flex--box-ATC-btn btn btn--large btn--submit product__submit__add"
+                style="display: inline-block; pointer-events: none; background-color: #ddd;"
+                {%- if product.selected_or_first_available_variant.available == false %}
+                  disabled="disabled"
+                {% endif -%}
+                data-add-to-cart
+              >
+                {%- liquid
+                  if product.selected_or_first_available_variant.available
+                    echo 'products.product.add_to_cart' | t
+                  else
+                    echo 'products.product.sold_out' | t
+                  endif
+                -%}
+                <em class="loader loader--line"><em class="loader-indeterminate"></em></em>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endform -%}
+  </product-form>
+</div>
+{% # end of container %}
+
+{% # Flexi Box Bundle Item Popup %}
+{%- render 'make-your-own-bundle-item-popup' -%}
+
+<div class="message-bar is-hidden">
+  <div class="message message--green">
+    <div class="message-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.66802 1.37429L4.48642 7.85309L0.416016 4.46069L1.18402 3.53909L4.31362 6.14669L8.73201 0.625488L9.66802 1.37429Z" fill="#000" stroke="#000" stroke-width="0.5"/>
+      </svg>
+    </div>
+    <div class="message-body">
+      <p>
+        <span></span>
+        added to box
+      </p>
+    </div>
+  </div>
+</div>
+
+{% comment %} Script to highlight bundle product added to box {% endcomment %}
+<style>
+  .nesovi-badge {
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0;
   }
-  localStorage.setItem('openCartDrawerAfterReload', 'false');
+  .nesovi-badge:hover {
+    text-decoration: underline;
+  }
+</style>
+<script>
+  const addToBoxBtns = document.querySelectorAll(".add-to-box");
 
-  // Enable checkboxes after page load
-  document.querySelectorAll("input[type='checkbox']").forEach(function(checkbox) {
-    checkbox.disabled = false;
-  });
-
-  // Scroll to top on page load
-  window.addEventListener("beforeunload", function () {
-    window.scrollTo(0, 0);
-  });
-
-  // Show/Hide header tabs
-  document.querySelectorAll('.tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      // Remove 'active-tab-content' from all tab contents
-      document.querySelectorAll('.tab-content').forEach(function(content) {
-        content.classList.remove('active-tab-content');
-      });
-      // Add 'active-tab-content' to the tab content with matching data-id
-      var dataId = tab.getAttribute('data-id');
-      var targetContent = document.querySelector(".tab-content[data-id='" + dataId + "']");
-      if (targetContent) {
-        targetContent.classList.add('active-tab-content');
-      }
-      // Remove 'active-tab' from all tabs
-      document.querySelectorAll('.tab').forEach(function(t) {
-        t.classList.remove('active-tab');
-      });
-      // Add 'active-tab' to all tabs within the same parent as the clicked tab
-      tab.parentElement.querySelectorAll('.tab').forEach(function(t) {
-        t.classList.add('active-tab');
-      });
-      // Update all bubble counters when switching tabs
-      updateAllBubbleCounters();
-      // Clear the search bar and trigger keyup event
-      var searchbar = document.getElementById('searchbar');
-      if (searchbar) {
-        searchbar.value = '';
-        var event = new KeyboardEvent('keyup', { bubbles: true });
-        searchbar.dispatchEvent(event);
-      }
-      // Scroll to top smoothly
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-
-  // Sticky header on-scroll
-  let lastScrollTop = 0;
-  window.addEventListener('scroll', function () {
-    var height = window.innerHeight;
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-    document.querySelectorAll('.sticky-header').forEach(function(header) {
-      if (scrollTop > height) {
-        header.classList.add('show');
-      } else {
-        header.classList.remove('show');
-      }
-      if (scrollTop > lastScrollTop) {
-        header.classList.add('hide'); // Scrolling down
-      } else {
-        header.classList.remove('hide'); // Scrolling up
-      }
-    });
-    lastScrollTop = scrollTop;
-  });
-
-  // Bubble counter update function to updates all bubble counters based on current state
-  function updateAllBubbleCounters() {
-    document.querySelectorAll('.bubble-counter').forEach(counter => {
-      const tabId = counter.id.match(/checkbox_count_tab_(\d+)/)[1];
-      const checkedCount = document.querySelectorAll(`[data-id="tab${tabId}"] input:checked`).length;
-      const selectionLimit = document.querySelector(`.tab-content[data-id="tab${tabId}"]`)?.getAttribute('data-product-limit');
-      const isLimitReached = (checkedCount === parseInt(selectionLimit));
-      const parentTab = counter.closest('.tab');
-      const isActive = parentTab?.classList.contains('active-tab');
-      
-      // Reset classes
-      counter.classList.remove('limit-reached', 'active-limit-reached');   
-      if (isLimitReached) {
-        counter.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="check-icon" width="11" height="9" viewBox="0 0 11 9" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.66802 1.37429L4.48642 7.85309L0.416016 4.46069L1.18402 3.53909L4.31362 6.14669L8.73201 0.625488L9.66802 1.37429Z" fill="#fff" stroke="#fff" stroke-width="0.5"/></svg>`;     
-        if (isActive) {
-          counter.classList.add('active-limit-reached');
-        } else {
-          counter.classList.add('limit-reached');
-        }
-      } else if (checkedCount > 0) {
-        counter.textContent = checkedCount;
-      } else {
-        counter.textContent = '';
-      }
-    });
+  function checkIfAddedToBox(e){
+    const parentElement = e.target.closest(".collection-item");
+    const elementToCheck = parentElement.querySelector(".added_to_cart");
+    const elementToBeHighlighted = parentElement.querySelector(".slider-wrapper");
+    
+    if(elementToCheck.classList.contains("_hidden")){
+      elementToBeHighlighted.classList.remove("flexi-box-product-highlight");
+    }else{
+      elementToBeHighlighted.classList.add("flexi-box-product-highlight");
+    }
   }
 
-  // Replace existing submit listener with this robust handler
-  (function attachBundleSubmit() {
-    const submitBtn = document.getElementById("submit-btn");
-    if (!submitBtn) return;
+  if(addToBoxBtns && addToBoxBtns.length > 0){
+    for(let i=0; i<addToBoxBtns.length; i++){
+      addToBoxBtns[i].addEventListener("click", checkIfAddedToBox);
+    }
+  }
 
-    // avoid attaching twice
-    if (submitBtn.dataset.bundleListenerAttached === "1") return;
-    submitBtn.dataset.bundleListenerAttached = "1";
-
-    submitBtn.addEventListener("click", async function (e) {
-      e.preventDefault();
-      const btn = e.currentTarget;
-
-      // reentrancy guard
-      if (btn.dataset.running === "1") return;
-      btn.dataset.running = "1";
-      btn.disabled = true;
-      btn.classList.add("loading");
-
-      try {
-        const form = document.getElementById("flexi-box-form");
-        if (!form) throw new Error("flexi-box-form not found");
-
-        // Re-enable all checkboxes BEFORE reading selections
-        form.querySelectorAll("input[type='checkbox']").forEach(cb => cb.disabled = false);
-
-        // Take a stable snapshot of checked boxes
-        const checkedInputs = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'));
-        console.log("[bundle] checkedInputs snapshot:", checkedInputs.map(i => ({
-          id: i.id,
-          value: i.value,
-          sku: i.dataset.sku,
-          price: i.dataset.price,
-          disabled: i.disabled,
-          checked: i.checked
-        })));
-
-        if (checkedInputs.length === 0) {
-          console.warn("[bundle] No items selected. Aborting add-to-cart.");
-          btn.classList.remove("loading");
-          btn.disabled = false;
-          btn.dataset.running = "0";
-          return;
-        }
-
-        const variantId = parseInt(form.dataset.variantId, 10);
-        const parentSku = String(form.dataset.sku || "");
-        // IMPORTANT: dataset.price appears to be in cents in your code. Treat it as cents.
-        const parentPriceCents = Math.round(Number(form.dataset.price) || 0); // e.g. 58899 cents = 588.99
-        if (!parentPriceCents) {
-          console.warn("[bundle] parent price missing or zero (dataset.price):", form.dataset.price);
-        }
-
-        // Build properties
-        const itemProperties = {};
-        const bundleProperties = {};
-        let itemCounter = 1;
-        let bundleCounter = 1;
-
-        // parent bundle product entry
-        bundleProperties[`_bundle_product${bundleCounter}`] = `${parentSku}/0/1`;
-        bundleCounter++;
-
-        // Compute total_regular_price in cents (defensive)
-        const totalRegularCents = checkedInputs.reduce((sum, input) => {
-          const p = Math.round(Number(input.dataset.price) || 0);
-          return sum + p;
-        }, 0);
-
-        console.log("[bundle] totalRegularCents:", totalRegularCents, "parentPriceCents:", parentPriceCents);
-
-        // If totalRegularCents === 0, fallback to equal split
-        let priceAssignedCents = 0;
-        checkedInputs.forEach((input, idx) => {
-          if (String(input.value).trim() === "No") {
-            // keep behaviour of disabling 'No' selections
-            input.disabled = true;
-            return;
-          }
-
-          // item property
-          itemProperties[`_ITEM${itemCounter}`] = input.value;
-
-          // Determine assigned price in cents
-          let shareCents;
-          const inputPriceCents = Math.round(Number(input.dataset.price) || 0);
-
-          if (totalRegularCents > 0 && parentPriceCents > 0) {
-            // proportional allocation by cents; round normally
-            shareCents = Math.round((inputPriceCents / totalRegularCents) * parentPriceCents);
-          } else if (parentPriceCents > 0) {
-            // fallback: equal split across checkedInputs (only the non-'No' ones)
-            const validCount = checkedInputs.filter(i => String(i.value).trim() !== "No").length || 1;
-            shareCents = Math.round(parentPriceCents / validCount);
-          } else {
-            shareCents = 0;
-          }
-
-          // If last real item, give remainder to avoid rounding gap
-          const isLastReal = (() => {
-            // find index of last non-'No' checked input
-            const lastIdx = checkedInputs.map(i => String(i.value).trim() !== "No").lastIndexOf(true);
-            return idx === lastIdx;
-          })();
-
-          if (isLastReal) {
-            const remainder = parentPriceCents - priceAssignedCents;
-            // assign remainder (can be zero or negative if something odd)
-            shareCents = remainder;
-          }
-
-          priceAssignedCents += shareCents;
-
-          // push bundle entry as decimal (divide by 100)
-          const priceDecimal = (shareCents / 100).toFixed(2);
-          const sku = input.dataset.sku || "";
-          bundleProperties[`_bundle_product${bundleCounter}`] = `${sku}/${priceDecimal}/1`;
-
-          itemCounter++;
-          bundleCounter++;
-        });
-
-        const properties = {
-          ...itemProperties,
-          ...bundleProperties
-        };
-
-        console.log("[bundle] properties being sent:", properties);
-
-        // final payload
-        const payload = {
-          items: [{
-            id: variantId,
-            quantity: 1,
-            properties: properties
-          }]
-        };
-
-        // send request
-        const res = await fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json();
-        console.log("[bundle] add response:", data);
-
-        // Summarize the selected products into the order note so fulfillment
-        // integrations (e.g. Shiprocket) that don't read custom line item
-        // properties can still see what's inside the box.
-        const itemSummaries = checkedInputs
-          .filter(input => String(input.value).trim() !== "No")
-          .map(input => {
-            const parts = String(input.value).split('/');
-            parts.pop(); // variant id
-            const sku = parts.pop() || '';
-            const title = parts.join('/');
-            return sku ? `${title} (SKU: ${sku})` : title;
-          });
-
-        if (itemSummaries.length > 0) {
-          try {
-            const noteLine = `Box (${parentSku}) contains: ${itemSummaries.join('; ')}`;
-            const cartRes = await fetch('/cart.js');
-            const cart = await cartRes.json();
-            const existingNote = cart.note ? cart.note.trim() : '';
-            const newNote = existingNote ? `${existingNote}\n${noteLine}` : noteLine;
-
-            await fetch('/cart/update.js', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-              body: JSON.stringify({ note: newNote })
-            });
-          } catch (noteErr) {
-            console.error("[bundle] failed to set cart note:", noteErr);
-          }
-        }
-
-        // success UI reset (same as you had)
-        form.reset();
-        form.querySelectorAll("input[type='checkbox']").forEach(cb => cb.disabled = false);
-        document.querySelector(".tab[data-id='tab1']")?.click();
-
-        const submitBtn = document.getElementById("submit-btn");
-        if (submitBtn) {
-          submitBtn.style.pointerEvents = "none";
-          submitBtn.style.backgroundColor = "#ddd"; // or use a CSS class instead
-        }
-
-        if (typeof updateAllBubbleCounters === 'function') updateAllBubbleCounters();
-
-        if (data && data.sections) {
-           if (document.getElementById('cart-drawer')) document.getElementById('cart-drawer').innerHTML = data.sections['cart-drawer'];
-        }
-
-        //Update cart drawer counter
-        fetch('/cart.js')
-        .then(res => res.json())
-        .then(cart => {
-          document.querySelector('#cart-counter').textContent = cart.item_count;
-        });
-
-        //Reload and open cart?
-        localStorage.setItem('openCartDrawerAfterReload', 'true');
-        location.reload();
-        
-      } catch (err) {
-        console.error("[bundle] submit error:", err);
-      } finally {
-        btn.classList.remove("loading");
-        btn.disabled = false;
-        btn.dataset.running = "0";
-        (async () => {
-          try {
-            // const response = await fetch('/?sections=cart-drawer');
-            // const data = await response.json();
-
-            // if (data['cart-drawer']) {
-            //   document.getElementById('cart-drawer').innerHTML = data['cart-drawer'];
-            // }
-
-            
-          } catch (err) {
-            // console.error("Cart refresh failed:", err);
-            // fallback: still open cart
-          }
-        })();
-      }
-    });
-  })();
-
-
-  // Get the total number of tabs
-  const totalTabs = document.querySelectorAll(".tab").length;
-  // Get all checkbox inputs
-  let checkboxes = document.querySelectorAll("input[type='checkbox']");
-  
-  // Store the initial input values of checkboxes in an object on page load
-  const initProdValues = {};
-  checkboxes.forEach(function(checkbox) {
-    initProdValues[checkbox.id] = checkbox.value.trim();
-  });
-  // console.log(initProdValues);
-
-  // Checkbox click functionality code
-  checkboxes.forEach(function(checkbox) {
-    checkbox.addEventListener("click", function () {
-      const initProductValue = initProdValues[this.id];
-      let currProductValue = this.value.trim();
-      // console.log("Initial:", initProductValue, "Current:", currProductValue);
-  
-      // Initial and Current checkbox values, reload if does not match
-      if (currProductValue !== initProductValue) {
-        location.reload();
-      }
-  
-      let currProduct = this.getAttribute("data-id");
-      let currProductDataId = this.getAttribute("data-id-products");
-      let currTabId = Number(currProductDataId.split("_")[1]);
-      let selectionLimit = document.querySelector(`.tab-content[data-id="tab${currTabId}"]`).getAttribute("data-product-limit");
-  
-      // Hide elements
-      let productInfo = this.closest(".product-info");
-      if (productInfo) {
-        productInfo.querySelectorAll(".added_to_cart, .product_counter").forEach(function(el) {
-          el.classList.add("_hidden");
-        });
-      }
-      if (this.checked) {
-        if (productInfo) {
-          productInfo.querySelectorAll(".added_to_cart, .product_counter").forEach(function(el) {
-            el.classList.remove("_hidden");
-          });
-        }
-        let productTitle = this.value.split("/")[0];
-        document.querySelectorAll(".message-bar").forEach(function(bar) {
-          bar.classList.remove("is-hidden");
-          let span = bar.querySelector("p span");
-          if (span) span.textContent = productTitle;
-          setTimeout(function () {
-            bar.classList.add("is-hidden");
-            if (span) span.textContent = "";
-          }, 2500);
-        });
-      }
-      // Count checked checkboxes in current tab
-      let n = document.querySelectorAll(`[data-id=tab${currTabId}] input:checked`).length;
-      // console.log(currTabId, selectionLimit);
-      // console.log(n);
-  
-      // Enable/disable checkboxes based on selection limit
-      let notChecked = document.querySelectorAll(`[data-id=tab${currTabId}] input:not(:checked)`);
-      let action = true;
-      if (n == selectionLimit) {
-        notChecked.forEach(function(input) {
-          input.disabled = true;
-        });
-      } else {
-        action = false;
-        notChecked.forEach(function(input) {
-          input.disabled = false;
-        });
-      }
-      if (n > selectionLimit) {
-        location.reload();
-      }
-      // Update bubble counters when checkbox selection changes
-      updateAllBubbleCounters();
-  
-      // Go to next tab after adding mandatory items
-      if (action === true) {
-        let nextTab = `tab${currTabId + 1}`;
-        let nextTabElem = document.querySelector(`.tab[data-id='${nextTab}']`);
-        if (nextTabElem) nextTabElem.click();
-  
-        // Clear search
-        let searchbar = document.getElementById("searchbar");
-        if (searchbar) {
-          searchbar.value = "";
-          let event = new KeyboardEvent('keyup', { bubbles: true });
-          searchbar.dispatchEvent(event);
-        }
-  
-        // Scroll up to top on switching tabs
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-  
-      // Enabling submit btn if all mandatory products are selected
-      let totalChecked = document.querySelectorAll("#flexi-box-form input[type=checkbox]:checked").length;
-      let submitBtn = document.getElementById("submit-btn");
-      if (submitBtn) {
-        if (typeof totalproductSelection !== "undefined" && totalChecked == totalproductSelection) {
-          submitBtn.style.display = "inline-block";
-          submitBtn.style.backgroundColor = "#0b0b0b";
-          submitBtn.style.pointerEvents = "auto";
-          submitBtn.disabled = false;
-        } else {
-          submitBtn.style.display = "inline-block";
-          submitBtn.style.backgroundColor = "#ddd";
-          submitBtn.disabled = true;
-        }
-      }
-    });
-  });
-
-  // Disable right-click context menu
-  document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
-  });
-  // Disable F12 key (Inspect Element)
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "F12" || e.keyCode === 123) {
-      e.preventDefault();
-      return false;
+  document.getElementById('scroll-to-reviews').addEventListener('click', function() {
+    const reviewSection = document.querySelector('.jdgm-horizon-widget');
+    if (reviewSection) {
+      reviewSection.scrollIntoView({ behavior: 'smooth' });
     }
   });
+</script>
 
-  // Custom search bar functionality
-  document.getElementById("searchbar").addEventListener("keyup", function () {
-    var value = this.value.toLowerCase();
-    document.querySelectorAll("#collection-list li").forEach(function (li) {
-      var link = li.querySelector(".product_flexi_title");
-      li.style.display = (link && link.textContent.toLowerCase().includes(value)) ? "" : "none";
-    });
-  });
-  // Clear search on pressing clear button
-  document.querySelectorAll(".search-clear").forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      var searchbar = document.getElementById("searchbar");
-      searchbar.value = "";
-      // Trigger keyup event
-      var event = new KeyboardEvent('keyup', { bubbles: true });
-      searchbar.dispatchEvent(event);
-    });
-  });
+{% comment %} end - Script to highlight bundle product added to box {% endcomment %}
 
-  // Disable whatsapp button on flexibox product page
-  let counter2 = 0;
-
-  function hideWhatsappBtn(){
-    let whatsappBtn1 = document.querySelector(".WhatsAppButton__root");
-    if(whatsappBtn1 && whatsappBtn1.style.display !== "none" && (window.location.href.includes("products/betteralt-get-3-for-1499") || window.location.href.includes("/products/betteralt-buy-3-for-999"))){
-      whatsappBtn1.style.display="none";
+{%- schema -%}
+{
+  "name": "Flexi box bundle",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Flexi box bundle"
     }
-    setTimeout(() => {
-      if(counter2 <= 7){
-        hideWhatsappBtn();
-      }
-      counter2++;
-    }, 2000)
-  }
-
-  hideWhatsappBtn();
-
-  const announcementBar = document.querySelector(".announcement");
-
-  if(announcementBar){
-    announcementBar.style.display="none";
-  }
-
-  const siteHeader1 = document.getElementById("SiteHeader");
-
-  siteHeader1.style.marginTop="0px";
-
-  if(siteHeader1.classList.contains("site-header-margin-top")){
-    siteHeader1.classList.remove("site-header-margin-top");
-  }
-
-  const collectionListBundle = document.getElementById("collection-list");
-
-  if(collectionListBundle){
-    collectionListBundle.style.marginTop="95px";
-  }
-
-});
+  ]
+}
+{%- endschema -%}
