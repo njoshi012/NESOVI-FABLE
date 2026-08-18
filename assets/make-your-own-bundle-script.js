@@ -250,38 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const data = await res.json();
         console.log("[bundle] add response:", data);
 
-        // Summarize the selected products into the order note so fulfillment
-        // integrations (e.g. Shiprocket) that don't read custom line item
-        // properties can still see what's inside the box.
-        const itemSummaries = checkedInputs
-          .filter(input => String(input.value).trim() !== "No")
-          .map(input => {
-            const parts = String(input.value).split('/');
-            parts.pop(); // variant id
-            const sku = parts.pop() || '';
-            const title = parts.join('/');
-            return sku ? `${title} (SKU: ${sku})` : title;
-          });
-
-        if (itemSummaries.length > 0) {
-          try {
-            const boxLabel = parentSku ? `Box (${parentSku})` : 'Box';
-            const noteLine = `${boxLabel} contains: ${itemSummaries.join('; ')}`;
-            const cartRes = await fetch('/cart.js');
-            const cart = await cartRes.json();
-            const existingNote = cart.note ? cart.note.trim() : '';
-            const newNote = existingNote ? `${existingNote}\n${noteLine}` : noteLine;
-
-            await fetch('/cart/update.js', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-              body: JSON.stringify({ note: newNote })
-            });
-          } catch (noteErr) {
-            console.error("[bundle] failed to set cart note:", noteErr);
-          }
-        }
-
         // success UI reset (same as you had)
         form.reset();
         form.querySelectorAll("input[type='checkbox']").forEach(cb => cb.disabled = false);
