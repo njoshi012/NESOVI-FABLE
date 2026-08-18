@@ -265,7 +265,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (itemSummaries.length > 0) {
           try {
-            const noteLine = `Box (${parentSku}) contains: ${itemSummaries.join('; ')}`;
+            const boxLabel = parentSku ? `Box (${parentSku})` : 'Box';
+            const noteLine = `${boxLabel} contains: ${itemSummaries.join('; ')}`;
             const cartRes = await fetch('/cart.js');
             const cart = await cartRes.json();
             const existingNote = cart.note ? cart.note.trim() : '';
