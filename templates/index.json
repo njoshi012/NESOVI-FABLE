@@ -1585,47 +1585,6 @@
                 "text_t6JXbD"
               ]
             },
-            "accordion_row_LqLQQY": {
-              "type": "_accordion-row",
-              "name": "t:names.accordion_dash_row",
-              "settings": {
-                "heading": "Our jewellery is made using quality materials that vary by product, including stainless steel and other jewellery alloys. The exact material is mentioned on each product page.",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_KfPUH4": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_KfPUH4"
-              ]
-            },
             "accordion_row_4cgcT3": {
               "type": "_accordion-row",
               "name": "t:names.accordion_dash_row",
@@ -1794,7 +1753,6 @@
           "block_order": [
             "accordion_row_V8Lf78",
             "accordion_row_WEEeiz",
-            "accordion_row_LqLQQY",
             "accordion_row_4cgcT3",
             "accordion_row_VLFj84",
             "accordion_row_h3QPdm",
