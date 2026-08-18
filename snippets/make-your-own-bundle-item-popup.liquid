@@ -302,7 +302,15 @@
 
   /* custom CSS */
   .popup-product-title {
-    margin: 0.5rem;
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  @media screen and (min-width: 750px) {
+    .popup-product-title {
+      font-size: 1.5rem;
+    }
   }
   .popup-product-price-wrapper {
     display: flex;
