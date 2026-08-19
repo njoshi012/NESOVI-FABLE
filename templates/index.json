@@ -1255,47 +1255,6 @@
         "subheading": "Real women. Real jewelry. Real anti-tarnish proof."
       }
     },
-    "nesovi_collections_mhRbty": {
-      "type": "nesovi-collections",
-      "blocks": {
-        "collection_card_GD3ecT": {
-          "type": "collection_card",
-          "settings": {
-            "badge": "Daily Essentials",
-            "title": "Build Your Collection",
-            "description": "Premium jewelry to mix & match",
-            "price_range": "₹149 – ₹799",
-            "features": "Premium anti-tarnish, Multiple pieces, Mix and match, Everyday to occasion",
-            "link": "",
-            "button_label": "Explore Collection"
-          }
-        },
-        "collection_card_zthcmB": {
-          "type": "collection_card",
-          "settings": {
-            "badge": "Daily Essentials",
-            "title": "Build Your Collection",
-            "description": "Premium jewelry to mix & match",
-            "price_range": "₹149 – ₹799",
-            "features": "Premium anti-tarnish, Multiple pieces, Mix and match, Everyday to occasion",
-            "link": "",
-            "button_label": "Explore Collection"
-          }
-        }
-      },
-      "block_order": [
-        "collection_card_GD3ecT",
-        "collection_card_zthcmB"
-      ],
-      "disabled": true,
-      "name": "NESOVI Collections",
-      "settings": {
-        "heading": "Two Ways to Wear NESOVI",
-        "subheading": "All premium anti-tarnish. Choose what fits your style.",
-        "guarantee_title": "Premium Anti-Tarnish Promise",
-        "guarantee_text": "Won't tarnish with daily wear. Tested & proven by 1000+ customers across all collections."
-      }
-    },
     "insta_reel_video_slider_td7XHE": {
       "type": "Insta-reel-video-slider",
       "blocks": {
@@ -2155,10 +2114,9 @@
     "trust_bar_main",
     "shop_by_category",
     "product_list_R4iceL",
-    "nesovi_shop_grid_mLAKhY",
     "nesovi_collections_e7KfaU",
+    "nesovi_shop_grid_mLAKhY",
     "nesovi_videos_ikFzdD",
-    "nesovi_collections_mhRbty",
     "insta_reel_video_slider_td7XHE",
     "product_list_HTDMHm",
     "why_choose_nesovi",
