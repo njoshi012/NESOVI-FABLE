@@ -489,6 +489,9 @@ body:has(.cart-drawer__dialog[open]) .sticky_cart {
   .prd-details .button--small {
     min-width: 14rem;
   }
+  .tab-menu .sticky-header{
+    z-index: 6 !important;
+  }
 }
 /*  Custom code for sticky bar on product page ends here */
 /* Hide Wishlist icon */
@@ -743,8 +746,4 @@ span.product_counter{
 
 #buy-3-1499 .WhatsAppButton__root {
   display: none !important;
-}
-
-.tab-menu .sticky-header{
-  z-index: 6;
 }
