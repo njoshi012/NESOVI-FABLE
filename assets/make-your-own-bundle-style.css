@@ -401,6 +401,18 @@
   z-index: 9;
 }
 
+/*
+  Cart drawer uses a native <dialog> "top layer" (showModal), which should
+  always render above regular z-indexed content — but mobile Safari/WebKit
+  has a longstanding bug where `position: fixed` elements can still bleed
+  through it. Explicitly hide these fixed bars while the drawer is open
+  rather than relying on z-index/top-layer alone.
+*/
+body:has(.cart-drawer__dialog[open]) .sticky-header,
+body:has(.cart-drawer__dialog[open]) .sticky_cart {
+  visibility: hidden;
+}
+
 @media screen and (max-width: 768px){
   .sticky_cart{
     bottom: 0px;
