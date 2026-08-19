@@ -1135,28 +1135,6 @@
         "padding-block-end": 48
       }
     },
-    "nesovi_shop_grid_mLAKhY": {
-      "type": "nesovi-shop-grid",
-      "custom_css": [
-        "button:first-child,.category-filter button:first-child,.filter-buttons button:first-child,.collection-filter button:first-child {display: none !important;}"
-      ],
-      "name": "NESOVI Shop Grid",
-      "settings": {
-        "heading": "Discover Your Style",
-        "collections": [
-          "new-collection",
-          "antitarnish-necklace",
-          "western-indian-meena-kari-kada",
-          "western-anti-tarnish-earring"
-        ],
-        "limit": 14,
-        "show_filters": true,
-        "show_price_filter": true,
-        "price_cap": 200,
-        "ribbon_text": "BUY 2 GET 1",
-        "ribbon_tag": "buy2get1"
-      }
-    },
     "nesovi_collections_e7KfaU": {
       "type": "nesovi-collections",
       "blocks": {
@@ -1180,8 +1158,8 @@
             "description": "Pick any 4 pieces and make their gift even more special.",
             "price_range": "₹1299",
             "features": "✨ Choose any 4 jewellery pieces,🎁 Premium gift-ready packaging,💎 Anti-tarnish jewellery,❤️ More jewellery, more to love",
-            "link": "",
-            "button_label": "Explore Collection"
+            "link": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-1299",
+            "button_label": "Shop 4 Piece Box"
           }
         }
       },
@@ -1195,6 +1173,28 @@
         "subheading": "Premium jewellery bundles made for gifting — choose 3 or 4 pieces and create a gift they’ll love.",
         "guarantee_title": "💝 Made to Gift. Made to Remember.",
         "guarantee_text": "Beautifully packed jewellery, thoughtfully curated for your favourite people."
+      }
+    },
+    "nesovi_shop_grid_mLAKhY": {
+      "type": "nesovi-shop-grid",
+      "custom_css": [
+        "button:first-child,.category-filter button:first-child,.filter-buttons button:first-child,.collection-filter button:first-child {display: none !important;}"
+      ],
+      "name": "NESOVI Shop Grid",
+      "settings": {
+        "heading": "Discover Your Style",
+        "collections": [
+          "new-collection",
+          "antitarnish-necklace",
+          "western-indian-meena-kari-kada",
+          "western-anti-tarnish-earring"
+        ],
+        "limit": 14,
+        "show_filters": true,
+        "show_price_filter": true,
+        "price_cap": 200,
+        "ribbon_text": "BUY 2 GET 1",
+        "ribbon_tag": "buy2get1"
       }
     },
     "nesovi_videos_ikFzdD": {
