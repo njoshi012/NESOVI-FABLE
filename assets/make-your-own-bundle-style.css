@@ -744,3 +744,7 @@ span.product_counter{
 #buy-3-1499 .WhatsAppButton__root {
   display: none !important;
 }
+
+.tab-menu .sticky-header{
+  z-index: 6;
+}
