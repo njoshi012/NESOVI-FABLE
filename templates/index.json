@@ -901,127 +901,6 @@
         "padding-block-end": 48
       }
     },
-    "nesovi_shop_grid_mLAKhY": {
-      "type": "nesovi-shop-grid",
-      "custom_css": [
-        "button:first-child,.category-filter button:first-child,.filter-buttons button:first-child,.collection-filter button:first-child {display: none !important;}"
-      ],
-      "name": "NESOVI Shop Grid",
-      "settings": {
-        "heading": "Discover Your Style",
-        "collections": [
-          "new-collection",
-          "antitarnish-necklace",
-          "western-indian-meena-kari-kada",
-          "western-anti-tarnish-earring"
-        ],
-        "limit": 14,
-        "show_filters": true,
-        "show_price_filter": true,
-        "price_cap": 200,
-        "ribbon_text": "BUY 2 GET 1",
-        "ribbon_tag": "buy2get1"
-      }
-    },
-    "nesovi_videos_ikFzdD": {
-      "type": "nesovi-videos",
-      "blocks": {
-        "video_DFBaCj": {
-          "type": "video",
-          "settings": {
-            "thumbnail": "shopify://shop_images/banner-4-mobile-banner-800-1032.png",
-            "name": "Everyday Elegance",
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/ccdaed06b91141e98b54f2ec0f652830.mp4",
-            "link_collection": "",
-            "link_product": "",
-            "link_label": "Shop Now"
-          }
-        },
-        "video_PFkB6h": {
-          "type": "video",
-          "settings": {
-            "name": "Everyday Elegance",
-            "video_url": "",
-            "link_collection": "",
-            "link_product": "",
-            "link_label": "Shop Now"
-          }
-        },
-        "video_BtT7MJ": {
-          "type": "video",
-          "settings": {
-            "name": "Everyday Elegance",
-            "video_url": "",
-            "link_collection": "",
-            "link_product": "",
-            "link_label": "Shop Now"
-          }
-        },
-        "video_JXKLKJ": {
-          "type": "video",
-          "settings": {
-            "name": "Everyday Elegance",
-            "video_url": "",
-            "link_collection": "",
-            "link_product": "",
-            "link_label": "Shop Now"
-          }
-        }
-      },
-      "block_order": [
-        "video_DFBaCj",
-        "video_PFkB6h",
-        "video_BtT7MJ",
-        "video_JXKLKJ"
-      ],
-      "disabled": true,
-      "name": "NESOVI Videos",
-      "settings": {
-        "heading": "See NESOVI in Action",
-        "subheading": "Real women. Real jewelry. Real anti-tarnish proof."
-      }
-    },
-    "nesovi_collections_mhRbty": {
-      "type": "nesovi-collections",
-      "blocks": {
-        "collection_card_GD3ecT": {
-          "type": "collection_card",
-          "settings": {
-            "badge": "Daily Essentials",
-            "title": "Build Your Collection",
-            "description": "Premium jewelry to mix & match",
-            "price_range": "₹149 – ₹799",
-            "features": "Premium anti-tarnish, Multiple pieces, Mix and match, Everyday to occasion",
-            "link": "",
-            "button_label": "Explore Collection"
-          }
-        },
-        "collection_card_zthcmB": {
-          "type": "collection_card",
-          "settings": {
-            "badge": "Daily Essentials",
-            "title": "Build Your Collection",
-            "description": "Premium jewelry to mix & match",
-            "price_range": "₹149 – ₹799",
-            "features": "Premium anti-tarnish, Multiple pieces, Mix and match, Everyday to occasion",
-            "link": "",
-            "button_label": "Explore Collection"
-          }
-        }
-      },
-      "block_order": [
-        "collection_card_GD3ecT",
-        "collection_card_zthcmB"
-      ],
-      "disabled": true,
-      "name": "NESOVI Collections",
-      "settings": {
-        "heading": "Two Ways to Wear NESOVI",
-        "subheading": "All premium anti-tarnish. Choose what fits your style.",
-        "guarantee_title": "Premium Anti-Tarnish Promise",
-        "guarantee_text": "Won't tarnish with daily wear. Tested & proven by 1000+ customers across all collections."
-      }
-    },
     "product_list_R4iceL": {
       "type": "product-list",
       "blocks": {
@@ -1063,7 +942,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<h4>{{ closest.collection.title }}</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1243,7 +1122,7 @@
         "max_products": 6,
         "columns": 4,
         "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
+        "mobile_card_size": "44cqw",
         "columns_gap": 8,
         "rows_gap": 24,
         "icons_style": "arrow",
@@ -1254,6 +1133,127 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "nesovi_shop_grid_mLAKhY": {
+      "type": "nesovi-shop-grid",
+      "custom_css": [
+        "button:first-child,.category-filter button:first-child,.filter-buttons button:first-child,.collection-filter button:first-child {display: none !important;}"
+      ],
+      "name": "NESOVI Shop Grid",
+      "settings": {
+        "heading": "Discover Your Style",
+        "collections": [
+          "new-collection",
+          "antitarnish-necklace",
+          "western-indian-meena-kari-kada",
+          "western-anti-tarnish-earring"
+        ],
+        "limit": 14,
+        "show_filters": true,
+        "show_price_filter": true,
+        "price_cap": 200,
+        "ribbon_text": "BUY 2 GET 1",
+        "ribbon_tag": "buy2get1"
+      }
+    },
+    "nesovi_videos_ikFzdD": {
+      "type": "nesovi-videos",
+      "blocks": {
+        "video_DFBaCj": {
+          "type": "video",
+          "settings": {
+            "thumbnail": "shopify://shop_images/banner-4-mobile-banner-800-1032.png",
+            "name": "Everyday Elegance",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/ccdaed06b91141e98b54f2ec0f652830.mp4",
+            "link_collection": "",
+            "link_product": "",
+            "link_label": "Shop Now"
+          }
+        },
+        "video_PFkB6h": {
+          "type": "video",
+          "settings": {
+            "name": "Everyday Elegance",
+            "video_url": "",
+            "link_collection": "",
+            "link_product": "",
+            "link_label": "Shop Now"
+          }
+        },
+        "video_BtT7MJ": {
+          "type": "video",
+          "settings": {
+            "name": "Everyday Elegance",
+            "video_url": "",
+            "link_collection": "",
+            "link_product": "",
+            "link_label": "Shop Now"
+          }
+        },
+        "video_JXKLKJ": {
+          "type": "video",
+          "settings": {
+            "name": "Everyday Elegance",
+            "video_url": "",
+            "link_collection": "",
+            "link_product": "",
+            "link_label": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "video_DFBaCj",
+        "video_PFkB6h",
+        "video_BtT7MJ",
+        "video_JXKLKJ"
+      ],
+      "disabled": true,
+      "name": "NESOVI Videos",
+      "settings": {
+        "heading": "See NESOVI in Action",
+        "subheading": "Real women. Real jewelry. Real anti-tarnish proof."
+      }
+    },
+    "nesovi_collections_mhRbty": {
+      "type": "nesovi-collections",
+      "blocks": {
+        "collection_card_GD3ecT": {
+          "type": "collection_card",
+          "settings": {
+            "badge": "Daily Essentials",
+            "title": "Build Your Collection",
+            "description": "Premium jewelry to mix & match",
+            "price_range": "₹149 – ₹799",
+            "features": "Premium anti-tarnish, Multiple pieces, Mix and match, Everyday to occasion",
+            "link": "",
+            "button_label": "Explore Collection"
+          }
+        },
+        "collection_card_zthcmB": {
+          "type": "collection_card",
+          "settings": {
+            "badge": "Daily Essentials",
+            "title": "Build Your Collection",
+            "description": "Premium jewelry to mix & match",
+            "price_range": "₹149 – ₹799",
+            "features": "Premium anti-tarnish, Multiple pieces, Mix and match, Everyday to occasion",
+            "link": "",
+            "button_label": "Explore Collection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_GD3ecT",
+        "collection_card_zthcmB"
+      ],
+      "disabled": true,
+      "name": "NESOVI Collections",
+      "settings": {
+        "heading": "Two Ways to Wear NESOVI",
+        "subheading": "All premium anti-tarnish. Choose what fits your style.",
+        "guarantee_title": "Premium Anti-Tarnish Promise",
+        "guarantee_text": "Won't tarnish with daily wear. Tested & proven by 1000+ customers across all collections."
       }
     },
     "insta_reel_video_slider_td7XHE": {
