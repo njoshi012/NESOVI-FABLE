@@ -1157,6 +1157,46 @@
         "ribbon_tag": "buy2get1"
       }
     },
+    "nesovi_collections_e7KfaU": {
+      "type": "nesovi-collections",
+      "blocks": {
+        "collection_card_d9HDw7": {
+          "type": "collection_card",
+          "settings": {
+            "badge": "Best Seller",
+            "title": "3 Piece Jewellery Gift Box",
+            "description": "Pick any 3 pieces to create your perfect NESOVI gift box.",
+            "price_range": "₹999",
+            "features": "✨ Choose any 3 jewellery pieces,🎁 Premium gift-ready packaging,💎 Anti-tarnish jewellery,❤️ Perfect for Rakhi & special occasions",
+            "link": "shopify://products/nesovi-gift-box-buy-3-jewellery-at-999",
+            "button_label": "Shop 3 Piece Box"
+          }
+        },
+        "collection_card_mwbCKT": {
+          "type": "collection_card",
+          "settings": {
+            "badge": "Best Value",
+            "title": "4 Piece Jewellery Box",
+            "description": "Pick any 4 pieces and make their gift even more special.",
+            "price_range": "₹1299",
+            "features": "✨ Choose any 4 jewellery pieces,🎁 Premium gift-ready packaging,💎 Anti-tarnish jewellery,❤️ More jewellery, more to love",
+            "link": "",
+            "button_label": "Explore Collection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_d9HDw7",
+        "collection_card_mwbCKT"
+      ],
+      "name": "NESOVI Collections",
+      "settings": {
+        "heading": "🎁 Gift More. Save More.",
+        "subheading": "Premium jewellery bundles made for gifting — choose 3 or 4 pieces and create a gift they’ll love.",
+        "guarantee_title": "💝 Made to Gift. Made to Remember.",
+        "guarantee_text": "Beautifully packed jewellery, thoughtfully curated for your favourite people."
+      }
+    },
     "nesovi_videos_ikFzdD": {
       "type": "nesovi-videos",
       "blocks": {
@@ -2116,6 +2156,7 @@
     "shop_by_category",
     "product_list_R4iceL",
     "nesovi_shop_grid_mLAKhY",
+    "nesovi_collections_e7KfaU",
     "nesovi_videos_ikFzdD",
     "nesovi_collections_mhRbty",
     "insta_reel_video_slider_td7XHE",
