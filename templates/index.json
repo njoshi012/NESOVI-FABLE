@@ -12,18 +12,18 @@
     "hero_slider_main": {
       "type": "hero-slider",
       "blocks": {
-        "hero_slide_TQyMHy": {
+        "hero_slide_EFk38L": {
           "type": "_hero-slide",
           "name": "Slide",
           "settings": {
-            "enabled": false,
-            "desktop_image": "shopify://shop_images/freedom-sale-2026-desktop.png",
-            "mobile_image": "shopify://shop_images/freedom-sale-2026-mobile.png",
+            "enabled": true,
+            "desktop_image": "shopify://shop_images/ChatGPT_Image_Aug_19_2026_11_34_40_AM_1.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Aug_19_2026_11_32_54_AM_1.png",
             "eyebrow": "",
             "heading": "",
             "subheading": "",
             "description": "",
-            "slide_link": "shopify://collections/western-indian-meena-kari-kada",
+            "slide_link": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-1299",
             "primary_button_text": "",
             "primary_button_link": "",
             "secondary_button_text": "",
@@ -191,7 +191,7 @@
         }
       },
       "block_order": [
-        "hero_slide_TQyMHy",
+        "hero_slide_EFk38L",
         "hero_slide_NJYKXU",
         "slide_2",
         "slide_1",
