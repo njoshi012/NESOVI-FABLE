@@ -1141,6 +1141,7 @@
         "collection_card_d9HDw7": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/buy-3-999.png",
             "badge": "Best Seller",
             "title": "3 Piece Jewellery Gift Box",
             "description": "Pick any 3 pieces to create your perfect NESOVI gift box.",
@@ -1153,6 +1154,7 @@
         "collection_card_mwbCKT": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/buy-4-1299.png",
             "badge": "Best Value",
             "title": "4 Piece Jewellery Box",
             "description": "Pick any 4 pieces and make their gift even more special.",
