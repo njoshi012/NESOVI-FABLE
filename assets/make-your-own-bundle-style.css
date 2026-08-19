@@ -353,7 +353,7 @@
 /*  Custom code for sticky bar on product page & cart page */
 .sticky-header {
   position: fixed;
-  top: 50px;
+  top: 60px;
   /* display: flex; */
   display: block;
   justify-content: center;
