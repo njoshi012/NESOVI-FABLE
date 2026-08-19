@@ -362,7 +362,7 @@
   left: 0;
   min-height: 90px;
   background: #ffffff;
-  z-index: 9;
+  z-index: 6;
   transform: translateY(0);
   transition: transform 0.6s ease-in-out;
   padding-block: 8px;
@@ -488,9 +488,6 @@ body:has(.cart-drawer__dialog[open]) .sticky_cart {
   }
   .prd-details .button--small {
     min-width: 14rem;
-  }
-  .tab-menu .sticky-header{
-    z-index: 6 !important;
   }
 }
 /*  Custom code for sticky bar on product page ends here */
