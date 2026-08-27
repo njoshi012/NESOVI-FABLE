@@ -23,7 +23,7 @@
             "heading": "",
             "subheading": "",
             "description": "",
-            "slide_link": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-1299",
+            "slide_link": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-999",
             "primary_button_text": "",
             "primary_button_link": "",
             "secondary_button_text": "",
@@ -1160,7 +1160,7 @@
             "description": "Pick any 4 pieces and make their gift even more special.",
             "price_range": "₹1299",
             "features": "✨ Choose any 4 jewellery pieces,🎁 Premium gift-ready packaging,💎 Anti-tarnish jewellery,❤️ More jewellery more to love",
-            "link": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-1299",
+            "link": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-999",
             "button_label": "Shop 4 Piece Box"
           }
         }
@@ -1678,7 +1678,7 @@
         "ai_gen_block_817b9d3_y9QAL9": {
           "type": "ai_gen_block_817b9d3",
           "settings": {
-            "redirect_url": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-1299",
+            "redirect_url": "shopify://products/nesovi-gift-box-buy-4-jewellery-at-999",
             "max_width": 550,
             "border_radius": 8,
             "delay_seconds": 6,
