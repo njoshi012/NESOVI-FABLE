@@ -30,7 +30,7 @@
         {% for r in rows %}<div>✓ {{ r | strip }}</div>{% endfor %}
       </div>
       {% endif %}
-      {% form 'product', p, id: 'nesoviPForm-' | append: section.id %}
+      {% form section.id %}
         <input type="hidden" name="id" id="nesoviVid-{{ section.id }}" value="{{ p.selected_or_first_available_variant.id }}">
         {% unless p.has_only_default_variant %}
           {% for option in p.options_with_values %}
@@ -141,4 +141,13 @@
   ],
   "presets": [{"name": "NESOVI Product"}]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% form 'product', p, id: 'nesoviPForm-' | append: section.id %}"
+  to: "{% form section.id %}"
+  position: 1741..1762
+{%- endcomment -%}

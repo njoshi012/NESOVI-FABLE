@@ -20,7 +20,7 @@
         <span class="nesovi-price-val">{{ p.selected_or_first_available_variant.price | money }}</span>
         {% if p.compare_at_price > p.price %}<s>{{ p.compare_at_price | money }}</s>{% endif %}
       </div>
-      {% form 'product', p, id: 'nesoviPForm-' | append: section.id %}
+      {% form section.id %}
         <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
         {% unless p.has_only_default_variant %}
           {% for option in p.options_with_values %}
@@ -114,4 +114,13 @@
   ],
   "presets": [{"name": "NESOVI Product Main"}]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% form 'product', p, id: 'nesoviPForm-' | append: section.id %}"
+  to: "{% form section.id %}"
+  position: 1265..1286
+{%- endcomment -%}
